@@ -190,8 +190,8 @@ static NSInteger STPPaymentCardRememberMeSection = 3;
 
 - (void)updateAppearance {
     self.view.backgroundColor = self.theme.primaryBackgroundColor;
-    [self.doneItem stp_setTheme:self.theme];
-    [self.backItem stp_setTheme:self.theme];
+//    [self.doneItem stp_setTheme:self.theme];
+//    [self.backItem stp_setTheme:self.theme];
     self.tableView.allowsSelection = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone; // handle this with fake separator views for flexibility
     self.tableView.backgroundColor = self.theme.primaryBackgroundColor;
