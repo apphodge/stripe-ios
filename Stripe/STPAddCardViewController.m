@@ -343,13 +343,6 @@ static NSInteger STPPaymentCardRememberMeSection = 3;
             if (tokenError) {
                 [self handleCardTokenError:tokenError];
             } else {
-                NSString *phone = self.rememberMePhoneCell.contents;
-                NSString *email = self.emailCell.contents;
-                BOOL rememberMeSelected = [STPEmailAddressValidator stringIsValidEmailAddress:email] && [STPPhoneNumberValidator stringIsValidPhoneNumber:phone] && self.showingRememberMePhoneAndTerms;
-                [[STPAnalyticsClient sharedClient] logRememberMeConversion:rememberMeSelected];
-                if (rememberMeSelected) {
-                    [self.checkoutAPIClient createAccountWithCardParams:cardParams email:email phone:phone];
-                }
                 [self.delegate addCardViewController:self didCreateToken:token completion:^(NSError * _Nullable error) {
                     stpDispatchToMainThreadIfNecessary(^{
                         if (error) {
@@ -587,7 +580,7 @@ static NSInteger STPPaymentCardRememberMeSection = 3;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(__unused UITableView *)tableView {
-    return 4;
+    return 3;
 }
 
 - (NSInteger)tableView:(__unused UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
